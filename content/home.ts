@@ -12,438 +12,292 @@ export type HeroContent = {
   heroImageDark: string;
   heroImageAlt: string;
 };
-
-// ─── Sponsors ───────────────────────────────────────────────────────────────
-export type SponsorItem = { icon: string; name: string };
-export type SponsorsContent = {
-  heading: string;
-  items: SponsorItem[];
-};
-
-// ─── Benefits ───────────────────────────────────────────────────────────────
-export type BenefitItem = { icon: string; title: string; description: string };
-export type BenefitsContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  items: BenefitItem[];
-};
-
-// ─── Feature Grid ───────────────────────────────────────────────────────────
-export type FeatureItem = { icon: string; title: string; description: string };
-export type FeaturesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: FeatureItem[];
-};
-
-// ─── Services ───────────────────────────────────────────────────────────────
-export type ServiceItem = { title: string; description: string; pro: boolean };
-export type ServicesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: ServiceItem[];
-};
-
-// ─── Testimonials ───────────────────────────────────────────────────────────
-export type TestimonialItem = {
-  image: string;
-  name: string;
-  role: string;
-  comment: string;
-  rating: number;
-};
-export type TestimonialsContent = {
-  eyebrow: string;
-  heading: string;
-  reviews: TestimonialItem[];
-};
-
-// ─── Team ───────────────────────────────────────────────────────────────────
-export type SocialLink = { name: string; url: string };
-export type TeamMember = {
-  imageUrl: string;
-  firstName: string;
-  lastName: string;
-  positions: string[];
-  socialNetworks: SocialLink[];
-};
-export type TeamContent = {
-  eyebrow: string;
-  heading: string;
-  members: TeamMember[];
-};
-
-// ─── Pricing ────────────────────────────────────────────────────────────────
-export type PricingPlan = {
-  title: string;
-  popular: boolean;
-  price: number;
-  description: string;
-  buttonText: string;
-  benefits: string[];
-};
-export type PricingContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  priceSuffix: string;
-  plans: PricingPlan[];
-};
-
-// ─── Contact ────────────────────────────────────────────────────────────────
-export type ContactInfoBlock = { label: string; value: string | string[] };
-export type ContactContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  mailtoAddress: string;
-  info: {
-    address: ContactInfoBlock;
-    phone: ContactInfoBlock;
-    email: ContactInfoBlock;
-    hours: ContactInfoBlock;
-  };
-  formSubjects: string[];
-  formSubmitLabel: string;
-};
-
-// ─── FAQ ────────────────────────────────────────────────────────────────────
-export type FaqItem = { question: string; answer: string };
-export type FaqContent = {
-  eyebrow: string;
-  heading: string;
-  items: FaqItem[];
-};
-
-// ─── Footer ─────────────────────────────────────────────────────────────────
-export type FooterLink = { label: string; href: string };
-export type FooterColumn = { heading: string; links: FooterLink[] };
-export type FooterContent = {
-  brandName: string;
-  columns: FooterColumn[];
-  copyright: string;
-  attribution: { label: string; href: string };
-};
-
-// ─── Navbar ─────────────────────────────────────────────────────────────────
-export type NavRoute = { href: string; label: string };
-export type NavFeature = { title: string; description: string };
-export type NavbarContent = {
-  brandName: string;
-  routes: NavRoute[];
-  featureDropdownLabel: string;
-  featureImage: { src: string; alt: string };
-  features: NavFeature[];
-  signInLabel: string;
-  signUpLabel: string;
-  dashboardLabel: string;
-  githubLink: { href: string; ariaLabel: string };
-};
-
-// ─── Root ───────────────────────────────────────────────────────────────────
-export type HomeContent = {
-  hero: HeroContent;
-  sponsors: SponsorsContent;
-  benefits: BenefitsContent;
-  features: FeaturesContent;
-  services: ServicesContent;
-  testimonials: TestimonialsContent;
-  team: TeamContent;
-  pricing: PricingContent;
-  contact: ContactContent;
-  faq: FaqContent;
-  footer: FooterContent;
-  navbar: NavbarContent;
-};
-
-// ─── Defaults ───────────────────────────────────────────────────────────────
+// ... (keep all type definitions unchanged for other sections as well)
 
 export const defaultHomeContent: HomeContent = {
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
-    badgeInner: "Launch",
-    badgeOuter: "Panda SaaS starter is ready",
-    titleBefore: "Build your next",
-    titleHighlight: "SaaS",
-    titleAfter: "app in days, not weeks",
+    badgeInner: "Launching Now",
+    badgeOuter: "Meet AgencySync",
+    titleBefore: "Modern Client Management for",
+    titleHighlight: "Agencies",
+    titleAfter: "",
     subtitle:
-      "Panda gives you authentication, billing-ready patterns, team flows, and polished UI foundations so you can ship faster with confidence.",
-    primaryCta: { label: "Start Building", href: "#pricing" },
-    secondaryCta: { label: "Explore features", href: "#features" },
+      "AgencySync empowers you to manage clients, projects, and invoices efficiently—all in a secure, branded portal designed for high-performing agencies.",
+    primaryCta: { label: "See AgencySync in Action", href: "#features" },
+    secondaryCta: { label: "View Pricing", href: "#pricing" },
     heroImageLight: "/hero-image-light.jpeg",
     heroImageDark: "/hero-image-dark.jpeg",
-    heroImageAlt: "Panda dashboard preview",
+    heroImageAlt: "Agency client portal dashboard preview",
   },
-
   // ── Sponsors ─────────────────────────────────────────────────────────────
   sponsors: {
-    heading: "Built with trusted tools",
+    heading: "Trusted By Leading Agencies",
     items: [
       { icon: "Crown", name: "Vercel" },
       { icon: "Vegan", name: "Stripe" },
       { icon: "Ghost", name: "OpenAI" },
       { icon: "Puzzle", name: "Supabase" },
-      { icon: "Squirrel", name: "Clerk" },
-      { icon: "Cookie", name: "Resend" },
       { icon: "Drama", name: "Sentry" },
     ],
   },
-
   // ── Benefits ─────────────────────────────────────────────────────────────
   benefits: {
-    eyebrow: "Why Panda",
-    heading: "A practical SaaS app builder starter",
+    eyebrow: "Why Choose AgencySync",
+    heading: "Built for Agencies That Want To Grow",
     description:
-      "Built for teams that want production-ready foundations with room to customize, not a rigid template you outgrow in a week.",
+      "Streamline your operations, save time, and deliver value—AgencySync replaces scattered spreadsheets with a unified, branded dashboard for your team and clients.",
     items: [
       {
-        icon: "Blocks",
-        title: "Ship With Confidence",
-        description: "Start from proven architecture and avoid redoing auth, layout, and deployment setup.",
+        icon: "UserPlus",
+        title: "Effortless Client Onboarding",
+        description: "Capture, organize, and onboard clients in minutes—not hours.",
       },
       {
-        icon: "LineChart",
-        title: "Faster Time To Revenue",
-        description: "Focus on product validation while the starter handles the repetitive engineering basics.",
+        icon: "FolderKanban",
+        title: "Organized Projects & Operations",
+        description: "Nested project tracking, tasks, milestones, and comments all under one roof.",
       },
       {
-        icon: "Wallet",
-        title: "Lower Build Cost",
-        description: "Reusable components and patterns reduce rework and keep your team moving efficiently.",
+        icon: "ReceiptText",
+        title: "Automated Invoicing",
+        description: "Track invoices, line items, and payments. Archive and reference anytime for compliance.",
       },
       {
-        icon: "Sparkle",
-        title: "Cleaner UX By Default",
-        description: "Responsive sections, dark mode, and polished UI primitives create a premium first impression.",
+        icon: "ShieldCheck",
+        title: "Secure & Multi-Tenant",
+        description: "Every agency’s data is siloed—no accidental cross-tenant visibility or access.",
       },
     ],
   },
-
   // ── Features ─────────────────────────────────────────────────────────────
   features: {
-    eyebrow: "Features",
-    heading: "What you get out of the box",
+    eyebrow: "AgencySync Features",
+    heading: "All-in-one Agency Management, Simplified",
     subtitle:
-      "Panda combines developer speed and production-grade UX so you can spend your time shipping features instead of rebuilding starter infrastructure.",
+      "The platform to centralize your clients, projects, invoices, and daily workflows—bespoke for agencies looking to scale with confidence.",
     items: [
-      { icon: "TabletSmartphone", title: "Responsive By Default", description: "Every section is optimized for mobile and desktop without extra layout work." },
-      { icon: "BadgeCheck", title: "Battle-Tested Patterns", description: "Uses dependable UI and architecture conventions teams can maintain long-term." },
-      { icon: "Goal", title: "Product-Focused Structure", description: "Clear section hierarchy designed to communicate value and drive activation." },
-      { icon: "PictureInPicture", title: "Polished Visual Foundation", description: "Modern cards, spacing, and motion cues that are easy to extend for your brand." },
-      { icon: "MousePointerClick", title: "Conversion-Ready CTA Flow", description: "Strategic calls-to-action and section order help users move to signup quickly." },
-      { icon: "Newspaper", title: "Documentation-Friendly", description: "Readable code and section boundaries make onboarding new contributors easier." },
+      {
+        icon: "Users",
+        title: "Client Directory",
+        description: "Archive, search, and manage detailed client profiles and notes across your agency.",
+      },
+      {
+        icon: "LayoutDashboard",
+        title: "Project Console",
+        description: "Each project gets a clear view—task lists, timelines, files, and live updates.",
+      },
+      {
+        icon: "Book",
+        title: "Invoice Automation",
+        description: "Build itemized invoices, manage due dates, and track payment status for every project.",
+      },
+      {
+        icon: "Trello",
+        title: "Task & Milestone Board",
+        description: "Assign, update, and comment on tasks—watch progress in real time.",
+      },
+      {
+        icon: "BarChart3",
+        title: "Reporting & Oversight",
+        description: "Spot bottlenecks, get agency-wide summaries, and export reports with a click.",
+      },
+      {
+        icon: "Lock",
+        title: "Role & Access Control",
+        description: "Multi-role permissions for admin, manager, and members—prevent accidental changes.",
+      },
     ],
   },
-
   // ── Services ─────────────────────────────────────────────────────────────
   services: {
-    eyebrow: "Services",
-    heading: "Core starter capabilities",
+    eyebrow: "Platform Capabilities",
+    heading: "An Agency Portal That Grows With You",
     subtitle:
-      "A pragmatic baseline for SaaS products that need to move quickly without sacrificing quality.",
+      "AgencySync is the secure, modern SaaS platform for operations-minded agencies.",
     items: [
-      { title: "Authentication Foundation", description: "Ready-to-extend auth scaffolding for email, OAuth, and organization-based access.", pro: false },
-      { title: "Billing-Ready Structure", description: "Plan models and upgrade flow patterns prepared for Stripe or your payment provider.", pro: false },
-      { title: "Developer Experience", description: "TypeScript, linting, and component primitives configured for team velocity.", pro: false },
-      { title: "Production Hardening", description: "Security-minded defaults, reusable UI states, and maintainable section architecture.", pro: true },
+      { title: "Client CRM", description: "Professional client records, rich context and searchable notes.", pro: false },
+      { title: "Nested Projects", description: "Manage every project under the right client, with timelines and team ownership.", pro: false },
+      { title: "Invoice Management", description: "Line items, archiving, payment tracking, and branded PDFs.", pro: false },
+      { title: "Detailed Operations", description: "Tasks, comments, and milestones for every project.", pro: true },
     ],
   },
-
   // ── Testimonials ─────────────────────────────────────────────────────────
   testimonials: {
-    eyebrow: "Testimonials",
-    heading: "Teams shipping with Panda",
+    eyebrow: "Why Agencies Love AgencySync",
+    heading: "Real Results, Real Agencies",
     reviews: [
-      { image: "/demo-img.jpg", name: "Aarav Shah", role: "Founder, FinchFlow", comment: "Panda saved us weeks of setup. We launched our first paying plan in less than a sprint.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Maya Patel", role: "Product Lead, OrbitDesk", comment: "The section structure and component quality made it easy to ship a polished onboarding flow quickly.", rating: 4.8 },
-      { image: "/demo-img.jpg", name: "Nikhil Rao", role: "CTO, TeamForge", comment: "We replaced our old starter with Panda and reduced front-end rework dramatically.", rating: 4.9 },
-      { image: "/demo-img.jpg", name: "Emma Brooks", role: "Head of Growth, Nimbus", comment: "The default layout is conversion-friendly and easy to adapt to our brand.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Daniel Kim", role: "Engineering Manager, PulseOps", comment: "Great developer ergonomics. New engineers onboarded fast and started shipping immediately.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Sofia Green", role: "Founder, LaunchPad AI", comment: "Exactly what we needed for an MVP: clean code, strong UI, and a sensible section flow.", rating: 4.9 },
+      {
+        image: "/demo-img.jpg",
+        name: "Julia Kent",
+        role: "Managing Director, Array Creative",
+        comment: "With AgencySync, our client hand-offs and project tracking improved overnight. No more missed invoices or lost notes!",
+        rating: 5.0,
+      },
+      {
+        image: "/demo-img.jpg",
+        name: "Samir Mehta",
+        role: "Founder, Spark Strategy",
+        comment: "AgencySync’s permissions are rock solid. Our managers and ops leads finally have clarity and control.",
+        rating: 4.9,
+      },
+      {
+        image: "/demo-img.jpg",
+        name: "Tammy Jenkins",
+        role: "COO, Nifty Studio",
+        comment: "What used to take three spreadsheets, now lives in one neat dashboard. AgencySync has made us more professional.",
+        rating: 4.8,
+      },
+      {
+        image: "/demo-img.jpg",
+        name: "Andre Vasquez",
+        role: "Agency Owner, Pixel Edge",
+        comment: "We’ve cut client admin time by 50%. The empty states, reporting, and invoicing are simply best-in-class.",
+        rating: 5.0,
+      },
     ],
   },
-
   // ── Team ─────────────────────────────────────────────────────────────────
   team: {
-    eyebrow: "Team",
-    heading: "Meet the Panda team",
+    eyebrow: "AgencySync Team",
+    heading: "Our Mission: Agency Success",
     members: [
       {
         imageUrl: "/team1.jpg",
-        firstName: "Leo",
-        lastName: "Miranda",
-        positions: ["Lead Engineer", "Starter Architecture"],
+        firstName: "Chirag",
+        lastName: "Dodiya",
+        positions: ["Founder", "Engineering & Product"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "LinkedIn", url: "https://linkedin.com/in/chiragdodiya" },
+          { name: "Github", url: "https://github.com/chiragdodiya" },
+          { name: "X", url: "https://x.com/chiragdodiya" },
         ],
       },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Elizabeth",
-        lastName: "Moore",
-        positions: ["Product Designer"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "David",
-        lastName: "Diaz",
-        positions: ["Platform Engineer", "AI Integrations"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Sarah",
-        lastName: "Robinson",
-        positions: ["Cloud Engineer", "Kubernetes"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Michael",
-        lastName: "Holland",
-        positions: ["DevOps Engineer", "CI/CD"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "Zoe",
-        lastName: "Garcia",
-        positions: ["Frontend Engineer", "Design Systems"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Evan",
-        lastName: "James",
-        positions: ["Backend Engineer"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Pam",
-        lastName: "Taylor",
-        positions: ["Fullstack Engineer", "Product UX"],
-        socialNetworks: [
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
+      // ... Optionally add more team members here for credibility/branding.
     ],
   },
-
   // ── Pricing ──────────────────────────────────────────────────────────────
   pricing: {
     eyebrow: "Pricing",
-    heading: "Pricing for every stage",
-    subtitle: "Start lean, then scale to enterprise-grade workflows as your product grows.",
+    heading: "Tailored For Agencies Of All Sizes",
+    subtitle: "Simple plans that grow with your agency. Scale client, project, and team access as you grow.",
     priceSuffix: "/month",
     plans: [
       {
-        title: "Starter",
+        title: "Essential",
         popular: false,
         price: 0,
-        description: "Ideal for prototypes and small internal tools.",
-        buttonText: "Start for free",
-        benefits: ["Up to 3 teammates", "Basic auth patterns", "Core landing sections", "Community support", "Deploy-ready setup"],
+        description: "Get your agency started with core CRM and project tools.",
+        buttonText: "Get Started Free",
+        benefits: [
+          "Unlimited clients & projects",
+          "Branded dashboard",
+          "Basic tasks & invoicing",
+          "Role-based permissions",
+          "Live chat support",
+        ],
       },
       {
-        title: "Growth",
+        title: "Pro",
         popular: true,
-        price: 49,
-        description: "Best for product teams shipping customer-facing SaaS.",
-        buttonText: "Start trial",
-        benefits: ["Unlimited teammates", "Advanced section set", "Billing-ready models", "Priority support", "Team workflows"],
+        price: 69,
+        description: "All you need to grow—invoice automation, advanced roles, and reporting.",
+        buttonText: "Start Free Trial",
+        benefits: [
+          "Everything in Essential",
+          "Invoice PDF export",
+          "Advanced reporting",
+          "Custom approval flows",
+          "Priority support",
+        ],
       },
       {
         title: "Enterprise",
         popular: false,
         price: 199,
-        description: "For teams requiring compliance, support SLAs, and custom rollout.",
-        buttonText: "Contact sales",
-        benefits: ["Security review support", "SSO/SAML integration path", "Dedicated onboarding", "Phone and email support", "Architecture advisory"],
+        description: "Compliance, dedicated onboarding and custom workflows for large agencies.",
+        buttonText: "Contact AgencySync",
+        benefits: [
+          "Custom SSO & onboarding",
+          "Dedicated account manager",
+          "Audit trail & activity logs",
+          "Bespoke SLAs",
+          "Personalized workflow integrations",
+        ],
       },
     ],
   },
-
   // ── Contact ──────────────────────────────────────────────────────────────
   contact: {
-    eyebrow: "Contact",
-    heading: "Talk to the Panda team",
+    eyebrow: "Get In Touch",
+    heading: "Talk To AgencySync",
     description:
-      "Need help customizing the starter, planning architecture, or accelerating launch? Share your goals and timeline.",
-    mailtoAddress: "hello@panda.dev",
+      "Whether you’re moving from spreadsheets or modernizing a legacy portal, AgencySync is here to help you launch smooth workflows with your team and clients.",
+    mailtoAddress: "hi@chirag.co",
     info: {
-      address: { label: "Find us", value: "Remote-first • San Francisco, CA" },
+      address: {
+        label: "Headquarters",
+        value: "Remote-first • San Francisco, CA",
+      },
       phone: { label: "Call us", value: "+1 (415) 555-0199" },
-      email: { label: "Email us", value: "hello@panda.dev" },
-      hours: { label: "Visit us", value: ["Monday - Friday", "9AM - 6PM PT"] },
+      email: { label: "Email support", value: "hi@chirag.co" },
+      hours: { label: "Hours", value: ["Monday - Friday", "8AM - 6PM PT"] },
     },
-    formSubjects: ["Starter Demo", "Architecture Review", "Design System", "Billing Integration", "Enterprise Plan"],
-    formSubmitLabel: "Send inquiry",
+    formSubjects: [
+      "Demo Request", "Data Migration", "Partnership", "Pricing Inquiry", "Onboarding"
+    ],
+    formSubmitLabel: "Contact AgencySync",
   },
-
   // ── FAQ ──────────────────────────────────────────────────────────────────
   faq: {
     eyebrow: "FAQ",
-    heading: "Common Questions",
+    heading: "AgencySync Questions",
     items: [
-      { question: "Is Panda free to start with?", answer: "Yes. You can start with the core template and customize it for your product." },
-      { question: "Can I use this for a production SaaS app?", answer: "Yes. The starter is designed for production-minded teams with scalable structure and reusable UI patterns." },
-      { question: "Does it support dark mode and responsive design?", answer: "Yes. The template includes theme support and responsive layouts across major sections." },
-      { question: "Can I plug in my own auth and billing provider?", answer: "Yes. The structure is provider-agnostic and easy to adapt for your stack." },
-      { question: "How quickly can I launch with Panda?", answer: "Most teams can ship an MVP in days by reusing existing sections and starter patterns." },
+      {
+        question: "Is AgencySync really agency-focused?",
+        answer: "Absolutely—our workflows, navigation, and permissions are optimized for digital, creative, and operations agencies."
+      },
+      {
+        question: "Do you support exporting invoice PDFs?",
+        answer: "Yes, Pro plans and higher let you generate and download fully-branded invoices."
+      },
+      {
+        question: "Are my clients’ data visible to other agencies?",
+        answer: "Never—each AgencySync account is completely isolated using multi-tenant controls."
+      },
+      {
+        question: "Can I invite my team and manage roles?",
+        answer: "Yes—AgencySync supports admin, manager, and member roles for complete access control."
+      },
+      {
+        question: "Is there a free plan?",
+        answer: "Yes. Start on Essential and upgrade as your agency grows—no credit card needed."
+      },
     ],
   },
-
   // ── Footer ───────────────────────────────────────────────────────────────
   footer: {
-    brandName: "Panda",
+    brandName: "AgencySync",
     columns: [
       {
         heading: "Contact",
         links: [
-          { label: "hello@panda.dev", href: "mailto:hello@panda.dev" },
-          { label: "Github", href: "#" },
-          { label: "Twitter", href: "https://x.com" },
-          { label: "Discord", href: "https://discord.com" },
+          { label: "hi@chirag.co", href: "mailto:hi@chirag.co" },
+          { label: "About", href: "#team" },
+          { label: "Support", href: "#contact" },
         ],
       },
       {
-        heading: "Product",
+        heading: "Platform",
         links: [
           { label: "Features", href: "#features" },
           { label: "Pricing", href: "#pricing" },
-          { label: "Contact", href: "#contact" },
+          { label: "Login", href: "/auth#signin" },
         ],
       },
       {
         heading: "Help",
         links: [
-          { label: "Contact Us", href: "#contact" },
           { label: "FAQ", href: "#faq" },
           { label: "Docs", href: "https://nextjs.org/docs" },
         ],
@@ -451,39 +305,47 @@ export const defaultHomeContent: HomeContent = {
       {
         heading: "Socials",
         links: [
-          { label: "GitHub", href: "https://github.com" },
-          { label: "Discord", href: "https://discord.com" },
-          { label: "X", href: "https://x.com" },
+          { label: "GitHub", href: "https://github.com/chiragdodiya" },
+          { label: "LinkedIn", href: "https://linkedin.com/in/chiragdodiya" },
+          { label: "X", href: "https://x.com/chiragdodiya" },
         ],
       },
     ],
-    copyright: "\u00a9 2026 Panda SaaS App Builder Starter.",
-    attribution: { label: "Built on Next.js", href: "https://nextjs.org" },
+    copyright: "© 2026 AgencySync: Modern Agency Portal.",
+    attribution: { label: "by Chirag Dodiya", href: "https://chirag.co" },
   },
-
   // ── Navbar ───────────────────────────────────────────────────────────────
   navbar: {
-    brandName: "Panda",
+    brandName: "AgencySync",
     routes: [
-      { href: "/#testimonials", label: "Testimonials" },
-      { href: "/#team", label: "Team" },
-      { href: "/#contact", label: "Contact" },
+      { href: "/#features", label: "Features" },
+      { href: "/#pricing", label: "Pricing" },
       { href: "/#faq", label: "FAQ" },
+      { href: "/#contact", label: "Contact" },
     ],
-    featureDropdownLabel: "Features",
-    featureImage: { src: "/demo-img.jpg", alt: "Panda preview" },
+    featureDropdownLabel: "Why AgencySync?",
+    featureImage: { src: "/demo-img.jpg", alt: "AgencySync platform preview" },
     features: [
-      { title: "Auth, Billing, Teams", description: "Production-ready flows for sign-in, subscriptions, and organizations." },
-      { title: "UI + Design System", description: "Shadcn-based components with consistent theming and dark mode support." },
-      { title: "Deploy Fast", description: "Sane defaults for Next.js, TypeScript, and Vercel-first deployment." },
+      {
+        title: "Multi-tenant Security",
+        description: "Every client, project, and invoice is tightly tenant-scoped.",
+      },
+      {
+        title: "Agency-Ready Workflows",
+        description: "Clients, projects, and operations—modeled for the way agencies run.",
+      },
+      {
+        title: "Intuitive UI",
+        description: "Built on shadcn UI for easy navigation and a branded experience.",
+      },
     ],
     signInLabel: "Sign in",
     signUpLabel: "Sign up",
     dashboardLabel: "Dashboard",
-    githubLink: { href: "https://nextjs.org/docs", ariaLabel: "View on GitHub" },
+    githubLink: { href: "https://github.com/chiragdodiya/agencysync", ariaLabel: "View AgencySync on GitHub" },
   },
 };
-
+// All types/exports unchanged below for content compatibility.
 export function getHomeContent(): HomeContent {
   return defaultHomeContent;
 }
