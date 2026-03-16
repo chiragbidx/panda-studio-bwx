@@ -68,62 +68,62 @@ type MockProject = {
 };
 
 const metrics: Metric[] = [
-  { label: "Total Users", value: "2,847", trend: "+12.4%", icon: Users, description: "vs last month" },
-  { label: "Active Projects", value: "184", trend: "+6.1%", icon: FolderKanban, description: "vs last month" },
-  { label: "Revenue", value: "$48,290", trend: "+18.2%", icon: DollarSign, description: "vs last month" },
-  { label: "Growth Rate", value: "24.5%", trend: "+3.1%", icon: TrendingUp, description: "vs last month" },
+  { label: "Clients Managed", value: "73", trend: "+8.2%", icon: Users, description: "vs last month" },
+  { label: "Active Projects", value: "18", trend: "+6.1%", icon: FolderKanban, description: "vs last month" },
+  { label: "Revenue (invoices)", value: "$12,480", trend: "+14.7%", icon: DollarSign, description: "vs last month" },
+  { label: "Growth Rate", value: "9.4%", trend: "+2.5%", icon: TrendingUp, description: "vs last month" },
 ];
 
 const onboardingSteps: OnboardingStep[] = [
-  { title: "Complete your profile", description: "Add your name and contact details.", href: "/dashboard/settings", done: false },
-  { title: "Invite team members", description: "Collaborate by sending invitations.", href: "/dashboard/team", done: false },
-  { title: "Connect an integration", description: "Link external tools and services.", href: "#", done: false },
-  { title: "Set up billing", description: "Add a payment method for premium.", href: "#", done: false },
+  { title: "Complete your agency profile", description: "Add your agency details and branding.", href: "/dashboard/settings", done: false },
+  { title: "Add your first client", description: "Start by onboarding a client into AgencySync.", href: "/dashboard/clients", done: false },
+  { title: "Create your first project", description: "Set up a billable project for a client.", href: "/dashboard/projects", done: false },
+  { title: "Invite your team", description: "Collaborate by sending invitations.", href: "/dashboard/team", done: false },
 ];
 
 const recentActivity: ActivityItem[] = [
-  { title: "New user signup", detail: "sarah@acme.dev created an account", time: "2 min ago", icon: Users },
-  { title: "Plan upgraded", detail: "starter@pulsehq.com moved to Pro", time: "28 min ago", icon: Zap },
-  { title: "Invoice paid", detail: "INV-2487 was paid — $299.00", time: "1 hr ago", icon: DollarSign },
-  { title: "Team invited", detail: "3 users invited to workspace", time: "3 hr ago", icon: Users },
-  { title: "Project created", detail: "New project 'Q2 Campaign'", time: "5 hr ago", icon: FolderKanban },
+  { title: "Client onboarded", detail: "Brightly Media joined AgencySync", time: "10 min ago", icon: Users },
+  { title: "Project marked complete", detail: "SEO Revamp marked as complete", time: "2 hr ago", icon: FolderKanban },
+  { title: "Invoice paid", detail: "INV-2981 - $1,800.00 paid", time: "3 hr ago", icon: DollarSign },
+  { title: "Team invited", detail: "2 users invited to AgencySync", time: "5 hr ago", icon: Users },
+  { title: "Comment added", detail: "Feedback on Q3 Web Redesign", time: "7 hr ago", icon: Activity },
 ];
 
 const quickActions = [
-  { label: "Invite a member", href: "/dashboard/team", icon: Users },
-  { label: "Account settings", href: "/dashboard/settings", icon: Activity },
-  { label: "View activity", href: "#", icon: Bell },
+  { label: "Add Client", href: "/dashboard/clients/new", icon: Users },
+  { label: "New Project", href: "/dashboard/projects/new", icon: FolderKanban },
+  { label: "Invite Team", href: "/dashboard/team", icon: Activity },
 ];
 
 const weeklyData = [
-  { day: "Mon", users: 42, revenue: 320 },
-  { day: "Tue", users: 58, revenue: 480 },
-  { day: "Wed", users: 35, revenue: 290 },
-  { day: "Thu", users: 72, revenue: 610 },
-  { day: "Fri", users: 63, revenue: 520 },
-  { day: "Sat", users: 28, revenue: 180 },
-  { day: "Sun", users: 18, revenue: 140 },
+  { day: "Mon", users: 13, revenue: 1200 },
+  { day: "Tue", users: 18, revenue: 1480 },
+  { day: "Wed", users: 11, revenue: 1290 },
+  { day: "Thu", users: 22, revenue: 1610 },
+  { day: "Fri", users: 15, revenue: 1320 },
+  { day: "Sat", users: 10, revenue: 980 },
+  { day: "Sun", users: 8, revenue: 890 },
 ];
 
 const monthlyRevenue = [
-  { month: "Jan", value: 12400 },
-  { month: "Feb", value: 15800 },
-  { month: "Mar", value: 14200 },
-  { month: "Apr", value: 18600 },
-  { month: "May", value: 22100 },
-  { month: "Jun", value: 19800 },
-  { month: "Jul", value: 24500 },
-  { month: "Aug", value: 28300 },
-  { month: "Sep", value: 26100 },
-  { month: "Oct", value: 31200 },
-  { month: "Nov", value: 35800 },
-  { month: "Dec", value: 48290 },
+  { month: "Jan", value: 8240 },
+  { month: "Feb", value: 10380 },
+  { month: "Mar", value: 9210 },
+  { month: "Apr", value: 11860 },
+  { month: "May", value: 13420 },
+  { month: "Jun", value: 12800 },
+  { month: "Jul", value: 14450 },
+  { month: "Aug", value: 15820 },
+  { month: "Sep", value: 14600 },
+  { month: "Oct", value: 15980 },
+  { month: "Nov", value: 17600 },
+  { month: "Dec", value: 12480 },
 ];
 
 const initialMockProjects: MockProject[] = [
-  { id: "p-1", name: "Landing Refresh", owner: "Ava", status: "Draft" },
-  { id: "p-2", name: "Onboarding Flow", owner: "Liam", status: "In Review" },
-  { id: "p-3", name: "Usage Dashboard", owner: "Noah", status: "Published" },
+  { id: "p-1", name: "Web Redesign for Brightly Media", owner: "Chirag", status: "Ongoing" },
+  { id: "p-2", name: "SEO Revamp for Nova Partners", owner: "Chirag", status: "In Review" },
+  { id: "p-3", name: "Brand Refresh for OrbitWave", owner: "Chirag", status: "Completed" },
 ];
 
 function BarChart({ data }: { data: typeof weeklyData }) {
@@ -274,7 +274,7 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
               {greeting}, {firstName}
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Here&apos;s what&apos;s happening across your workspace today.
+              Welcome to your AgencySync workspace—your hub for client, project, and agency management.
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -302,7 +302,7 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
           <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
           <Input
             type="search"
-            placeholder="Search dashboard..."
+            placeholder="Search your agency workspace..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="pl-9 h-10 bg-muted/50 border-muted-foreground/15 focus-visible:border-border focus-visible:bg-background"
@@ -365,7 +365,7 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
                     0 / {onboardingSteps.length}
                   </Badge>
                 </div>
-                <CardDescription>Complete these steps to set up your workspace.</CardDescription>
+                <CardDescription>Begin your AgencySync journey by setting up your agency workspace.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-1">
                 {filteredSteps.map((step) => (
@@ -395,11 +395,11 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div>
-                    <CardTitle className="text-base">Weekly Signups</CardTitle>
-                    <CardDescription>New user registrations this week</CardDescription>
+                    <CardTitle className="text-base">Weekly Client Activity</CardTitle>
+                    <CardDescription>New client signups and projects launched</CardDescription>
                   </div>
                   <Badge variant="outline" className="text-xs font-medium">
-                    316 total
+                    48 activities
                   </Badge>
                 </div>
               </CardHeader>
@@ -419,11 +419,11 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle className="text-base">Revenue Overview</CardTitle>
-                  <CardDescription>Monthly revenue for the current year</CardDescription>
+                  <CardDescription>Monthly invoice totals in AgencySync</CardDescription>
                 </div>
                 <div className="text-right">
-                  <p className="text-lg font-bold tracking-tight">$48,290</p>
-                  <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">+18.2% from last month</p>
+                  <p className="text-lg font-bold tracking-tight">$12,480</p>
+                  <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">+14.7% from last month</p>
                 </div>
               </div>
             </CardHeader>
@@ -440,13 +440,13 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
             <CardHeader>
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <CardTitle className="text-base">Projects</CardTitle>
+                  <CardTitle className="text-base">Client Projects</CardTitle>
                   <CardDescription>
-                    Create and update your projects
+                    Create and update agency projects (mock, not persisted)
                   </CardDescription>
                 </div>
                 <Button size="sm" onClick={openCreateDialog}>
-                  Create project
+                  Add Project
                 </Button>
               </div>
             </CardHeader>
@@ -480,21 +480,21 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>
-                  {editingProject ? "Edit project" : "Create project"}
+                  {editingProject ? "Edit Project" : "Add Project"}
                 </DialogTitle>
                 <DialogDescription>
-                  This is mock data in local component state. No backend call is made.
+                  This is sample data for demonstration only. Projects are not saved to your AgencySync account.
                 </DialogDescription>
               </DialogHeader>
 
               <form onSubmit={handleSaveProject} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="project-name">Project name</Label>
+                  <Label htmlFor="project-name">Project Name</Label>
                   <Input
                     id="project-name"
                     name="name"
                     defaultValue={editingProject?.name ?? ""}
-                    placeholder="Q2 Campaign"
+                    placeholder="OrbitWave Website"
                     required
                   />
                 </div>
@@ -504,7 +504,7 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
                     id="project-owner"
                     name="owner"
                     defaultValue={editingProject?.owner ?? ""}
-                    placeholder="Ava"
+                    placeholder="Chirag"
                     required
                   />
                 </div>
@@ -513,8 +513,8 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
                   <Input
                     id="project-status"
                     name="status"
-                    defaultValue={editingProject?.status ?? "Draft"}
-                    placeholder="Draft"
+                    defaultValue={editingProject?.status ?? "Ongoing"}
+                    placeholder="Ongoing"
                     required
                   />
                 </div>
@@ -524,7 +524,7 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
                     Cancel
                   </Button>
                   <Button type="submit">
-                    {editingProject ? "Save changes" : "Create"}
+                    {editingProject ? "Save Changes" : "Add Project"}
                   </Button>
                 </DialogFooter>
               </form>
@@ -540,7 +540,7 @@ export function DashboardContent({ greeting, firstName }: { greeting: string; fi
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="text-base">Recent Activity</CardTitle>
-                <CardDescription>Latest events across your workspace</CardDescription>
+                <CardDescription>Latest agency events and updates</CardDescription>
               </div>
               <Button variant="ghost" size="sm" className="gap-1.5 text-xs" disabled>
                 View all
