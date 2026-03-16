@@ -21,14 +21,8 @@ import {
   signUpWithPassword,
 } from "./actions";
 
-// Purpose: Client UI for /auth.
-// Use this file for auth mode toggles, form interactivity, and browser-only logic.
-//
-// Replication pattern for new interactive pages:
-// - Keep server mutations in `actions.ts`.
-// - Bind actions here with `useActionState`.
-// - Use local state only for presentation/interaction (tabs, steps, toggles).
-// - Keep forms simple: collect inputs and submit to a server action.
+import { getHomeContent } from "@/content/home";
+const { navbar } = getHomeContent();
 
 type AuthMode = "signin" | "signup";
 
@@ -81,19 +75,17 @@ export default function Client({ redirectTo }: ClientProps) {
   };
 
   const content = useMemo(() => {
-    // View-model for mode-specific heading/description copy.
     if (mode === "signup") {
       return {
         id: "signup",
-        title: "Create account",
-        description: "Start your free account in less than a minute.",
+        title: "Create your AgencySync account",
+        description: "Start managing your clients and projects in minutes. For agencies and teams only.",
       };
     }
-
     return {
       id: "signin",
-      title: "Sign in",
-      description: "Use your email and password to continue.",
+      title: "Sign in to AgencySync",
+      description: "Access your secure client portal for agencies. Use your agency login details.",
     };
   }, [mode]);
 
@@ -104,22 +96,28 @@ export default function Client({ redirectTo }: ClientProps) {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/25 via-transparent to-primary/10" />
           <div className="relative z-10 flex h-full flex-col justify-between">
             <div className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80">
-                Panda Access
-              </p>
-              <h1 className="max-w-sm text-4xl font-semibold leading-tight tracking-tight">
-                Launch faster with one workspace for your team.
-              </h1>
-              <p className="max-w-md text-sm text-muted-foreground">
-                Secure auth, polished interface, and a clean onboarding flow built
-                for production teams.
+              <div className="flex items-center mb-4">
+                <Image
+                  src="/demo-img.jpg"
+                  alt="AgencySync logo"
+                  width={48}
+                  height={48}
+                  className="rounded-lg object-cover border border-primary mr-3"
+                />
+                <h1 className="font-bold text-2xl text-primary">AgencySync</h1>
+              </div>
+              <h2 className="max-w-sm text-3xl font-semibold leading-tight tracking-tight">
+                Your modern agency portal starts here.
+              </h2>
+              <p className="max-w-md text-base text-muted-foreground">
+                Welcome to AgencySync—manage your clients, projects, invoices, and operations all in one secure branded space, built for agencies like yours.
               </p>
             </div>
 
             <div className="relative overflow-hidden rounded-2xl border border-secondary/70 bg-background/80 p-3 shadow-lg">
               <Image
-                src="/demo-img.jpg"
-                alt="Panda product preview"
+                src="/hero-image-light.jpeg"
+                alt="AgencySync product dashboard preview"
                 className="h-full w-full rounded-xl object-cover"
                 width={1200}
                 height={900}
@@ -140,6 +138,7 @@ export default function Client({ redirectTo }: ClientProps) {
                       ? "bg-background text-foreground shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
+                  aria-label="Sign in with AgencySync"
                 >
                   Sign in
                 </button>
@@ -151,8 +150,9 @@ export default function Client({ redirectTo }: ClientProps) {
                       ? "bg-background text-foreground shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
+                  aria-label="Create AgencySync account"
                 >
-                  Sign up
+                  Create account
                 </button>
               </div>
 
@@ -164,17 +164,17 @@ export default function Client({ redirectTo }: ClientProps) {
 
             <CardContent className="space-y-6">
               {mode === "signin" ? (
-                // Sign-in form submits directly to server action.
                 <form className="space-y-4" action={signInAction}>
                   {redirectTo && <input type="hidden" name="redirectTo" value={redirectTo} />}
                   <div className="space-y-2">
-                    <Label htmlFor="signin-email">Email</Label>
+                    <Label htmlFor="signin-email">Email address</Label>
                     <Input
                       id="signin-email"
                       name="email"
                       type="email"
-                      placeholder="you@company.com"
+                      placeholder="your.agency@email.com"
                       required
+                      autoComplete="email"
                     />
                   </div>
 
@@ -191,36 +191,37 @@ export default function Client({ redirectTo }: ClientProps) {
                       type="password"
                       placeholder="Enter your password"
                       required
+                      autoComplete="current-password"
                     />
                   </div>
 
                   <Button type="submit" className="w-full" disabled={isPending}>
-                    {isPending ? "Signing in..." : "Sign in"}
+                    {isPending ? "Signing in..." : "Sign in to AgencySync"}
                   </Button>
                 </form>
               ) : (
-                // Sign-up form submits directly to server action.
                 <form className="space-y-4" action={signUpAction}>
                   {redirectTo && <input type="hidden" name="redirectTo" value={redirectTo} />}
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="signup-first-name">First name</Label>
-                      <Input id="signup-first-name" name="firstName" placeholder="Chirag" required />
+                      <Input id="signup-first-name" name="firstName" placeholder="Chirag" required autoComplete="given-name" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="signup-last-name">Last name</Label>
-                      <Input id="signup-last-name" name="lastName" placeholder="Dodiya" required />
+                      <Input id="signup-last-name" name="lastName" placeholder="Dodiya" required autoComplete="family-name" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="signup-email">Email</Label>
+                    <Label htmlFor="signup-email">Agency email</Label>
                     <Input
                       id="signup-email"
                       name="email"
                       type="email"
-                      placeholder="you@company.com"
+                      placeholder="your.agency@email.com"
                       required
+                      autoComplete="email"
                     />
                   </div>
 
@@ -233,6 +234,7 @@ export default function Client({ redirectTo }: ClientProps) {
                         type="password"
                         placeholder="Create password"
                         required
+                        autoComplete="new-password"
                       />
                     </div>
                     <div className="space-y-2">
@@ -243,22 +245,34 @@ export default function Client({ redirectTo }: ClientProps) {
                         type="password"
                         placeholder="Repeat password"
                         required
+                        autoComplete="new-password"
                       />
                     </div>
                   </div>
 
                   <Button type="submit" className="w-full" disabled={isPending}>
-                    {isPending ? "Creating account..." : "Create account"}
+                    {isPending ? "Creating account..." : "Create your AgencySync account"}
                   </Button>
                 </form>
               )}
 
               {activeState.status === "error" && activeState.message ? (
-                // Unified place for server-action validation/auth errors.
                 <p className="text-sm font-medium text-destructive" role="alert">
                   {activeState.message}
                 </p>
               ) : null}
+
+              <div className="text-xs text-muted-foreground pt-6 text-center">
+                By signing in or creating an account, you agree to the AgencySync terms. For help, email{" "}
+                <a
+                  href="mailto:hi@chirag.co"
+                  className="underline hover:text-primary"
+                  tabIndex={-1}
+                >
+                  hi@chirag.co
+                </a>
+                .
+              </div>
             </CardContent>
           </Card>
         </div>
