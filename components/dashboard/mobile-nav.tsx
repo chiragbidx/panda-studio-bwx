@@ -33,18 +33,17 @@ export function MobileNav({ fullName, email, initials }: MobileNavProps) {
           <div className="p-5 pb-0">
             <div className="flex items-center gap-2.5">
               <div className="grid size-8 place-items-center rounded-lg bg-foreground text-background text-sm font-bold">
-                P
+                A
               </div>
-              <span className="font-semibold tracking-tight">Panda Admin</span>
+              <span className="font-semibold tracking-tight text-primary">
+                AgencySync
+              </span>
             </div>
           </div>
-
           <div className="my-4" />
-
           <div className="flex-1 overflow-y-auto px-3">
             <SidebarNav />
           </div>
-
           <Separator />
           <div className="p-4">
             <div className="flex items-center gap-3">
