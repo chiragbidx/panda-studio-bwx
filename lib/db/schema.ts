@@ -95,3 +95,21 @@ export const featureItems = pgTable("feature_items", {
     .notNull()
     .defaultNow(),
 });
+
+export const clients = pgTable("clients", {
+  id: text("id").notNull().default(sql`gen_random_uuid()`).primaryKey(),
+  teamId: text("team_id")
+    .notNull()
+    .references(() => teams.id, { onDelete: "cascade" }),
+  name: text("name").notNull(),
+  contactInfo: text("contact_info").notNull().default(""),
+  billingInfo: text("billing_info").notNull().default(""),
+  notes: text("notes").notNull().default(""),
+  status: text("status").notNull().default("active"),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});
