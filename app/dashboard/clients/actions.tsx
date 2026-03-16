@@ -1,7 +1,7 @@
 "use server";
 
 import { z } from "zod";
-import { and, eq, ilike } from "drizzle-orm";
+import { and, eq, ilike, sql } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { clients, teams, teamMembers, users } from "@/lib/db/schema";
 import { getAuthSession } from "@/lib/auth/session";
@@ -204,20 +204,19 @@ export async function listClients({ search = "" }: { search?: string } = {}) {
 
   if (!membership) return [];
 
-  let query = db
+  // Compose where-clause with/without search
+  const conditions = [
+    eq(clients.teamId, membership.teamId),
+    eq(clients.status, "active"),
+  ];
+  if (search) {
+    conditions.push(ilike(clients.name, `%${search}%`));
+  }
+
+  const rows = await db
     .select()
     .from(clients)
-    .where(
-      and(
-        eq(clients.teamId, membership.teamId),
-        eq(clients.status, "active"),
-        search
-          ? ilike(clients.name, `%${search}%`)
-          : sql`TRUE`
-      )
-    );
-
-  const rows = await query;
+    .where(and(...conditions));
 
   return rows.map((c) => ({
     id: c.id,
