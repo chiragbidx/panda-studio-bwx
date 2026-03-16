@@ -53,8 +53,6 @@ export const LayoutContactSection = () => {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     const { firstName, lastName, email, subject, message } = values;
-    console.log(values);
-
     const mailToLink = `mailto:${contact.mailtoAddress}?subject=${subject}&body=Hello, I am ${firstName} ${lastName}. My email is ${email}. %0D%0A${message}`;
 
     window.location.assign(mailToLink);
@@ -137,7 +135,7 @@ export const LayoutContactSection = () => {
                       <FormItem className="w-full">
                         <FormLabel>First Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Leopoldo" {...field} />
+                          <Input placeholder="First name" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -150,7 +148,7 @@ export const LayoutContactSection = () => {
                       <FormItem className="w-full">
                         <FormLabel>Last Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Miranda" {...field} />
+                          <Input placeholder="Last name" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -168,7 +166,7 @@ export const LayoutContactSection = () => {
                         <FormControl>
                           <Input
                             type="email"
-                            placeholder="you@company.com"
+                            placeholder="you@agency.com"
                             {...field}
                           />
                         </FormControl>
@@ -218,7 +216,7 @@ export const LayoutContactSection = () => {
                         <FormControl>
                           <Textarea
                             rows={5}
-                            placeholder="Tell us about your SaaS idea, stage, and timeline..."
+                            placeholder="Tell us about your agency, client list, or workflow needs…"
                             className="resize-none"
                             {...field}
                           />
