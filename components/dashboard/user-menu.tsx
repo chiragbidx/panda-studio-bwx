@@ -28,7 +28,7 @@ export function UserMenu({
       <PopoverTrigger asChild>
         <button
           className="flex items-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          title="Account menu"
+          title="AgencySync account menu"
         >
           <Avatar className="size-8 border cursor-pointer transition-opacity hover:opacity-80">
             <AvatarFallback className="text-xs font-medium bg-muted">
@@ -65,7 +65,7 @@ export function UserMenu({
               className="w-full justify-start gap-2 text-muted-foreground hover:text-foreground"
             >
               <LogOut className="size-4" />
-              Sign out
+              Sign out of AgencySync
             </Button>
           </form>
         </div>
